@@ -1,0 +1,33 @@
+<head>
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+<body>
+	<div id="main">
+	<div id="instruction">
+		<p></p>
+	</div>
+	<div id="next">
+		<p>CLICK TO START</p>
+	</div>
+</div>
+
+
+	<script>
+		var directions = [
+		'walk 125 metres north', 
+		'walk 125 metres south', 
+		'walk 125 metres east', 
+		'walk 125 metres west',
+		];
+
+		document.getElementById("next").onclick = function() {
+			chooseNext()
+			document.getElementById("next").innerHTML = "next direction"};
+
+		function chooseNext() {
+			var randomNumber = Math.floor(Math.random()*directions.length);
+			document.getElementById("instruction").innerHTML = directions[randomNumber];
+		};
+
+	</script>
+</body>
