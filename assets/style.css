@@ -1,6 +1,8 @@
 body {
 	background-color: #000;
 	color: #fff;
+	font-family: 'Helvetica', sans-serif;
+	font-size: 32px;
 }
 
 #main {
@@ -11,15 +13,41 @@ body {
 }
 
 #instruction {
-	padding: 50 0;
+	height: 200px;
 	margin: 10 10;
-	border: 1px solid #fff;
-	top: 50%;
+	border: 2px solid #fff;
+	position: relative;
 }
 
 #next {
-	padding: 50 0;
+	height: 200px;
 	margin: 10 10;
-	border: 1px solid #fff;
+	border: 2px solid #fff;
+	position: relative;
+}
 
+#next:active {
+	background-color: #fff;
+	color: #000;
+}
+
+.text {
+  	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+  }
+
+  .noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }

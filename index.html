@@ -4,29 +4,61 @@
 <body>
 	<div id="main">
 	<div id="instruction">
-		<p></p>
+		<div class="text">
+			<p>move <span id="distance"></span> metres <span id="direction"></span></p>
+		</div>
 	</div>
 	<div id="next">
-		<p>CLICK TO START</p>
+		<div id="start" class="text noselect">
+			<p>CLICK TO START</p>
+		</div>
 	</div>
 </div>
 
 
 	<script>
 		var directions = [
-		'walk 125 metres north', 
-		'walk 125 metres south', 
-		'walk 125 metres east', 
-		'walk 125 metres west',
+		'north', 
+		'south', 
+		'east', 
+		'west'
 		];
 
-		document.getElementById("next").onclick = function() {
+		var distance = [
+		'125',
+		'250',
+		'375',
+		'500',
+		'625',
+		'750',
+		'875',
+		'1000'
+		];
+
+		var method = [
+		'walk',
+		'run',
+		'crawl',
+		'skip',
+		'jump',
+		'walk backwards',
+		'hop',
+		'speed walk',
+		'walk sideways',
+		''
+		]
+
+		document.getElementById("start").onclick = function() {
 			chooseNext()
-			document.getElementById("next").innerHTML = "next direction"};
+			document.getElementById("start").innerHTML = "<p>next direction</p>"};
 
 		function chooseNext() {
+			var randomNumber = Math.floor(Math.random()*distance.length);
+			document.getElementById("distance").innerHTML = distance[randomNumber];
+
 			var randomNumber = Math.floor(Math.random()*directions.length);
-			document.getElementById("instruction").innerHTML = directions[randomNumber];
+			document.getElementById("direction").innerHTML = directions[randomNumber];
+
 		};
 
 	</script>
