@@ -1,11 +1,12 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<script src="assets/compass.js"></script>
 </head>
 <body>
 	<div id="main">
 	<div id="instruction">
 		<div class="text">
-			<p>move <span id="distance"></span> metres <span id="direction"></span></p>
+			<p><span id="methods"></span> <span id="distance"></span><span id="direction"></span></p>
 		</div>
 	</div>
 	<div id="next">
@@ -15,27 +16,66 @@
 	</div>
 </div>
 
+<div class="container">
 
-	<script>
-		var directions = [
+
+
+    <div class="compass">
+
+      <div id="rose" class="compass__rose">
+
+        <svg class="compass__rose__dial" viewBox="0 0 130 130" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+          <circle cx="65" cy="65" r="56" stroke="white" stroke-width="1" fill="none" />
+          <polyline points="63,9  67,9  65,13" fill="white"/>
+          <polyline points="121,63  121,67  119,65" fill="white"/>
+          <polyline points="63,121  67,121  65,119" fill="white"/>
+          <polyline points="9,63  9,67  11,65" fill="white"/>
+
+          <text x="65" y="4.2" font-size="5" text-anchor="middle" fill="white">N</text>
+          <text x="127" y="67" font-size="5" text-anchor="middle" fill="white">E</text>
+          <text x="65" y="129" font-size="5" text-anchor="middle" fill="white">S</text>
+          <text x="2.8" y="67" font-size="5" text-anchor="middle" fill="white">W</text>
+
+        </svg>
+
+      </div>
+
+      <svg class="compass__pointer" viewBox="0 0 130 130" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+        <polyline points="60,60  70,60  65,15" fill="#b60000"/>
+        <polyline points="60,70  70,70  65,115" fill="white"/>
+        <circle cx="65" cy="65" r="7" stroke="#b60000" stroke-width="7" fill="none" />
+
+      </svg>
+
+    </div>
+
+
+
+  </div>
+
+
+<script>
+	var directions = [
 		'north', 
 		'south', 
 		'east', 
 		'west'
+	];
+
+	var distance = [
+		'125 metres ',
+		'250 metres ',
+		'375 metres ',
+		'500 metres ',
+		'625 metres ',
+		'750 metres ',
+		'875 metres ',
+		'1000 metres '
 		];
 
-		var distance = [
-		'125',
-		'250',
-		'375',
-		'500',
-		'625',
-		'750',
-		'875',
-		'1000'
-		];
-
-		var method = [
+	var movement = [
 		'walk',
 		'run',
 		'crawl',
@@ -44,22 +84,33 @@
 		'walk backwards',
 		'hop',
 		'speed walk',
-		'walk sideways',
-		''
-		]
+		'walk sideways'
+	];
 
-		document.getElementById("start").onclick = function() {
-			chooseNext()
-			document.getElementById("start").innerHTML = "<p>next direction</p>"};
+	function chooseNext() {
+		var randomNumber = Math.floor(Math.random()*distance.length);
+		document.getElementById("distance").innerHTML = distance[randomNumber];
 
-		function chooseNext() {
-			var randomNumber = Math.floor(Math.random()*distance.length);
-			document.getElementById("distance").innerHTML = distance[randomNumber];
+		var randomNumber = Math.floor(Math.random()*directions.length);
+		document.getElementById("direction").innerHTML = directions[randomNumber];
 
-			var randomNumber = Math.floor(Math.random()*directions.length);
-			document.getElementById("direction").innerHTML = directions[randomNumber];
+		var randomNumber = Math.floor(Math.random()*movement.length);
+		document.getElementById("methods").innerHTML = movement[randomNumber];
+	};
 
-		};
+	document.getElementById("start").onclick = function() {
+		chooseNext()
+		document.getElementById("start").innerHTML = "<p>next direction</p>"
+	};
 
-	</script>
+	window.addEventListener('deviceorientation', function(event) {
+  var alpha = event.alpha;
+  var beta = event.beta;
+  var gamma = event.gamma;
+  // Do something
+}, false);
+
+	
+
+</script>
 </body>
