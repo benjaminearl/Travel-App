@@ -400,17 +400,10 @@
     document.addEventListener("mozfullscreenchange", onFullscreenChange);
     document.addEventListener("MSFullscreenChange", onFullscreenChange);
   
-    btnLockOrientation.addEventListener("click", toggleOrientationLock);
-    btnNightmode.addEventListener("click", toggleNightmode);
-    btnMap.addEventListener("click", openMap);
-  
     var i;
     for (i=0; i<btnsPopup.length; i++) {
       btnsPopup[i].addEventListener("click", popupOpenFromClick);
     }
-  
-    popup.addEventListener("click", popupClose);
-    popupContents.addEventListener("click", popupContentsClick);
   
     navigator.geolocation.watchPosition(locationUpdate, locationUpdateFail, {
       enableHighAccuracy: false,
@@ -422,4 +415,3 @@
     checkLockable();
   
   }());
-  
