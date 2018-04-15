@@ -1,22 +1,45 @@
-<head>
-	<link rel="stylesheet" type="text/css" href="assets/style.css">
-	<script src="assets/compass.js"></script>
-</head>
-<body>
-	<div id="main">
-	<div id="instruction">
-		<div class="text">
-			<p><span id="methods"></span> <span id="distance"></span><span id="direction"></span></p>
-		</div>
-	</div>
-	<div id="next">
-		<div id="start" class="text noselect">
-			<p>CLICK TO START</p>
-		</div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html lang="en"> <!-- manifest="manifest.appcache"> -->
 
-<div class="container">
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/logo-app.png">
+
+
+    <title>City Explorer</title>
+
+    <link rel="stylesheet" href="css/app.css">
+
+</head>
+
+
+
+<body>
+
+	<div id="main">
+    <div id="instruction">
+      <div class="text">
+        <p><span id="methods"></span> <span id="distance"></span><span id="direction"></span></p>
+      </div>
+    </div>
+    <div id="next">
+      <div id="start" class="text noselect">
+        <p>CLICK TO START</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container">
 
 
 
@@ -32,6 +55,11 @@
           <polyline points="63,121  67,121  65,119" fill="white"/>
           <polyline points="9,63  9,67  11,65" fill="white"/>
 
+          <text x="65" y="4.2" font-size="5" text-anchor="middle" fill="white">N</text>
+          <text x="127" y="67" font-size="5" text-anchor="middle" fill="white">E</text>
+          <text x="65" y="129" font-size="5" text-anchor="middle" fill="white">S</text>
+          <text x="2.8" y="67" font-size="5" text-anchor="middle" fill="white">W</text>
+
         </svg>
 
       </div>
@@ -45,14 +73,11 @@
       </svg>
 
     </div>
-
-
-
   </div>
 
-
-<script>
-	var directions = [
+  <script src="js/app.js"></script>
+  <script>
+    	var directions = [
 		'north', 
 		'south', 
 		'east', 
@@ -97,15 +122,9 @@
 		chooseNext()
 		document.getElementById("start").innerHTML = "<p>next direction</p>"
 	};
+  </script>
 
-	window.addEventListener('deviceorientation', function(event) {
-  var alpha = event.alpha;
-  var beta = event.beta;
-  var gamma = event.gamma;
-  // Do something
-}, false);
-
-	
-
-</script>
 </body>
+
+
+</html>
