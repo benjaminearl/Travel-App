@@ -27,7 +27,7 @@
 	<div id="main">
     <div id="instruction">
       <div class="text">
-        <p><span id="methods"></span> <span id="distance"></span><span id="direction"></span></p>
+        <p><span id="methods">Move</span> <span id="distance"></span><span id="direction"></span></p>
       </div>
     </div>
     <div id="next">
@@ -95,7 +95,7 @@
 		'1000 metres '
 		];
 
-	var movement = [
+	/*var movement = [
 		'walk',
 		'run',
 		'crawl',
@@ -105,7 +105,7 @@
 		'hop',
 		'speed walk',
 		'walk sideways'
-	];
+	];*/
 
 	function chooseNext() {
 		var randomNumber = Math.floor(Math.random()*distance.length);
@@ -114,9 +114,9 @@
 		var randomNumber = Math.floor(Math.random()*directions.length);
 		document.getElementById("direction").innerHTML = directions[randomNumber];
 
-		var randomNumber = Math.floor(Math.random()*movement.length);
+		/*var randomNumber = Math.floor(Math.random()*movement.length);
 		document.getElementById("methods").innerHTML = movement[randomNumber];
-	};
+	};*/
 
 	document.getElementById("start").onclick = function() {
 		chooseNext()
